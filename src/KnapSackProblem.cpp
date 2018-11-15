@@ -82,17 +82,21 @@ void KnapSackProblem::solveProblem(string filename)
         else
             outFilename = filename + "_result.txt";
         output.open(outFilename, fstream::out);
-        output << "Problem" << endl;
-        output << numItems << endl;
-        output << bpWeight << endl;
-        for (int i = 0; i < numItems; i++)
+        if (output.is_open())
         {
-            output << w[i] << ";" << v[i] << endl;
+
+            output << "Problem" << endl;
+            output << numItems << endl;
+            output << bpWeight << endl;
+            for (int i = 0; i < numItems; i++)
+            {
+                output << w[i] << ";" << v[i] << endl;
+            }
+            output << "result: " << endl;
+            for (int i = result.size() - 1; i >= 0; i--)
+                output << result[i] << "    ";
+            output << endl;
         }
-        output << "result: " << endl;
-        for (int i = result.size() - 1; i >= 0; i--)
-            output << result[i] << "    ";
-        output << endl;
         /*
         output << "result Matrix" << endl;
         for (int i = 0; i <= numItems; i++)
