@@ -1,0 +1,3 @@
+numItems
+Capacity
+weigth1|value1

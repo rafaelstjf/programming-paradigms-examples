@@ -1,0 +1,12 @@
+Problema:
+6
+190
+56;50
+59;50
+80;64
+64;46
+75;50
+17;5
+Resultado: 
+1    2    5    
+Tempo: 0 milisegundos | 0 segundos

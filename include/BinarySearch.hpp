@@ -5,13 +5,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include<ctime>
 using namespace std;
 
 class BinarySearch
 {
   private:
   int solveAux(int* arr, int l, int u, int x);
-  int comparations;
+  int comparisons;
   public:
     BinarySearch();
     ~BinarySearch();

@@ -1,0 +1,16 @@
+Problema:
+10
+165
+23;92
+31;57
+29;49
+44;68
+53;60
+38;43
+63;67
+85;84
+89;87
+82;72
+Resultado: 
+1    2    3    4    6    
+Tempo: 0 milisegundos | 0 segundos

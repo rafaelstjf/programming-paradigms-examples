@@ -1,0 +1,11 @@
+Problema:
+5
+26
+12;24
+7;13
+11;23
+8;15
+9;16
+Resultado: 
+2    3    4    
+Tempo: 0 milisegundos | 0 segundos

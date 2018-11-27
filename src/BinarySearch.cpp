@@ -10,16 +10,16 @@ int BinarySearch::solveAux(int *array, int l, int u, int x)
 {
     if (u >= l)
     {
-        comparations++;
+        comparisons++;
         int mid = l + (u - l) / 2;
         if (array[mid] == x)
         {
-            comparations++;
+            comparisons++;
             return mid;
         }
         if (array[mid] > x)
         {
-            comparations++;
+            comparisons++;
             return solveAux(array, l, mid - 1, x);
         }
         return solveAux(array, mid + 1, u, x);
@@ -28,9 +28,10 @@ int BinarySearch::solveAux(int *array, int l, int u, int x)
 }
 void BinarySearch::solveProblem(string filename)
 {
+    clock_t start, end;
     fstream input;
     fstream output;
-    comparations = 0;
+    comparisons = 0;
     input.open(filename, fstream::in);
     if (input.is_open())
     {
@@ -45,13 +46,17 @@ void BinarySearch::solveProblem(string filename)
             getline(input, line);
             array[i] = atoi(line.c_str());
         }
+        start = clock();
         int result = solveAux(array, 0, arrSize - 1, x);
-        cout << "Result: " << endl;
+        end = clock();
+        cout << "Resultado: " << endl;
         if (result == -1)
-            cout << "Element not found in the array!" << endl;
+            cout << "Elemento nao encontrado no vetor!" << endl;
         else
-            cout << "Element position: " << result << endl;
-        cout << "Comparations: " << comparations << endl;
+            cout << "Posicao do elemento: " << result << endl;
+        cout << "Comparacoes: " << comparisons << endl;
+        cout << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+        //saving in file
         string outFilename;
         int size = filename.find_last_of('.');
         if (size <= filename.size())
@@ -61,16 +66,18 @@ void BinarySearch::solveProblem(string filename)
         output.open(outFilename, fstream::out);
         if (output.is_open())
         {
-            output << "Result: " << endl;
+            output << "Resultado: " << endl;
             if (result == -1)
-                output << "Element not found in the array!" << endl;
+                output << "Elemento nao encontrado no vetor!" << endl;
             else
-                output << "Element position: " << result << endl;
-            output << "Comparations: " << comparations << endl;
+                output << "Posicao do elemento: " << result << endl;
+            output << "Comparacoes: " << comparisons << endl;
+            output << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+            cout << "Resultado salvo em: " << outFilename << endl;
         }
     }
     else
     {
-        cout << "Error! Impossible to open file " << filename << "." << endl;
+        cout << "Erro! Falha ao abrir o arquivo" << filename << endl;
     }
 }

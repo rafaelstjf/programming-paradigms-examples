@@ -8,6 +8,7 @@ void KnapSackProblem::solveProblem(string filename)
 {
     fstream input;
     fstream output;
+    clock_t start, end;
     input.open(filename, fstream::in);
     if (input.is_open())
     {
@@ -28,6 +29,7 @@ void KnapSackProblem::solveProblem(string filename)
             w[i] = atoi(temp1.c_str());
             v[i] = atoi(temp2.c_str());
         }
+        start = clock();
         //creates the matrix
         int **t = new int *[numItems + 1];
         for (int i = 0; i <= numItems; i++)
@@ -75,6 +77,8 @@ void KnapSackProblem::solveProblem(string filename)
             else
                 a = a - 1;
         }
+        end = clock();
+        //saving result
         string outFilename;
         int size = filename.find_last_of('.');
         if (size <= filename.size())
@@ -85,17 +89,19 @@ void KnapSackProblem::solveProblem(string filename)
         if (output.is_open())
         {
 
-            output << "Problem" << endl;
+            output << "Problema:" << endl;
             output << numItems << endl;
             output << bpWeight << endl;
             for (int i = 0; i < numItems; i++)
             {
                 output << w[i] << ";" << v[i] << endl;
             }
-            output << "result: " << endl;
+            output << "Resultado: " << endl;
             for (int i = result.size() - 1; i >= 0; i--)
                 output << result[i] << "    ";
             output << endl;
+            output << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+            cout << "Resultado salvo em: " << outFilename << endl;
         }
         /*
         output << "result Matrix" << endl;
@@ -108,14 +114,14 @@ void KnapSackProblem::solveProblem(string filename)
             output << endl;
         }
         */
-        cout << "result: " << endl;
+        cout << "Resultado: " << endl;
         for (int i = result.size() - 1; i >= 0; i--)
             cout << result[i] << "    ";
         cout << endl;
-        cout << "result saved on " << outFilename << endl;
+        cout << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
     }
     else
     {
-        cout << "Error! Impossible to open file " << filename << "." << endl;
+        cout << "Erro! Falha ao abrir o arquivo " << filename << endl;
     }
 }
