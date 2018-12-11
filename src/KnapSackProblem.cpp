@@ -86,6 +86,7 @@ void KnapSackProblem::solveProblem(string filename)
         else
             outFilename = filename + "_result.txt";
         output.open(outFilename, fstream::out);
+        cout.precision(15);
         if (output.is_open())
         {
 
@@ -100,7 +101,7 @@ void KnapSackProblem::solveProblem(string filename)
             for (int i = result.size() - 1; i >= 0; i--)
                 output << result[i] << "    ";
             output << endl;
-            output << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+            output << fixed << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
             cout << "Resultado salvo em: " << outFilename << endl;
         }
         /*
@@ -118,7 +119,7 @@ void KnapSackProblem::solveProblem(string filename)
         for (int i = result.size() - 1; i >= 0; i--)
             cout << result[i] << "    ";
         cout << endl;
-        cout << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+        cout << fixed << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
     }
     else
     {

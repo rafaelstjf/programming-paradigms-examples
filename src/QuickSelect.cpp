@@ -91,6 +91,8 @@ void QuickSelect::solveProblem(string filename)
             }
             output << "Resultado: " << solution << endl;
             cout << "Resultado: " << solution << endl;
+            output << fixed << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+            cout << fixed << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
             cout << "Resultado salvo em: " << outFilename << endl;
         }
     }

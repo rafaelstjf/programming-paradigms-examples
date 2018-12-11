@@ -55,7 +55,8 @@ void BinarySearch::solveProblem(string filename)
         else
             cout << "Posicao do elemento: " << result << endl;
         cout << "Comparacoes: " << comparisons << endl;
-        cout << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+         cout.precision(15);
+        cout << fixed  << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
         //saving in file
         string outFilename;
         int size = filename.find_last_of('.');
@@ -72,7 +73,7 @@ void BinarySearch::solveProblem(string filename)
             else
                 output << "Posicao do elemento: " << result << endl;
             output << "Comparacoes: " << comparisons << endl;
-            output << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+            output << fixed << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
             cout << "Resultado salvo em: " << outFilename << endl;
         }
     }

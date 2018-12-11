@@ -106,7 +106,8 @@ void FractionalKnapSack::solveProblem(string filename)
                  << "[" << i << "]: " << used[i] << endl;
         }
         cout << "Valor total: " << sum << endl;
-        cout << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+        cout.precision(15);
+        cout << fixed  << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
         //save the file
         string outFilename;
         int size = filename.find_last_of('.');
@@ -132,7 +133,7 @@ void FractionalKnapSack::solveProblem(string filename)
                        << "[" << i << "]: " << used[i] << endl;
             }
             output << "Valor total: " << sum << endl;
-            output << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
+            output << fixed << "Tempo: " << (end - start) << " milisegundos | " << (end - start) / CLOCKS_PER_SEC << " segundos" << endl;
             cout << "Resultado salvo em: " << outFilename << endl;
         }
     }
